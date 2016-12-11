@@ -6,29 +6,29 @@ layout: default
     // {% raw %}
     var pad = '    ';
     var qlist = [
-        "\/\/ \<\!\[CDATA\[
-        "\/\/ \{\% raw \%\}
-        "var pad \= \'    \'\;
-        "var qlist \= \[
-        "\]\;
-        "document\.writeln\(\"\-\-\-\\nlayout\: default\\n\-\-\-\\n\&lt\;pre\&gt\;\&lt\;script\&gt\;\"\)\;
-        "function HTMLEnc\(str\) \{ return str
-        "    \.replace\(\/\&\/g\, \"\&amp\;\"\)
-        "    \.replace\(\/\<\/g\, \"\&lt\;\"\)
-        "    \.replace\(\/\>\/g\, \"\&gt\;\"\)\;
-        "\}
-        "for \(var i \= 0\; i \< 4\; i\+\+\) \{
-        "    document\.writeln\(pad \+ HTMLEnc\(qlist\[i\]\)\)\;
-        "\}
-        "for \(var j \= 0\, len \= qlist\.length\; j \< len\; j\+\+\) \{
-        "    document\.writeln\(pad \+ pad \+ \'\"\' \+ HTMLEnc\(qlist\[j\]\.replace\(\/\[\^A\-Za\-z0\-9\\s\]\/g\, \"\\\\\$\&\"\)\)\)\;
-        "\}
-        "for \(\; i \< len\; i\+\+\) \{
-        "    document\.writeln\(pad \+ HTMLEnc\(qlist\[i\]\)\)\;
-        "\}
-        "document\.writeln\(\"\&lt\;\/script\&gt\;\&lt\;\/pre\&gt\;\"\)\;
-        "\/\/ \{\% endraw \%\}
-        "\/\/ \]\]\>
+        "\/\/ \<\!\[CDATA\[",
+        "\/\/ \{\% raw \%\}",
+        "var pad \= \'    \'\;",
+        "var qlist \= \[",
+        "\]\;",
+        "document\.writeln\(\"\-\-\-\\nlayout\: default\\n\-\-\-\\n\&lt\;pre\&gt\;\&lt\;script\&gt\;\"\)\;",
+        "function HTMLEnc\(str\) \{ return str",
+        "    \.replace\(\/\&\/g\, \"\&amp\;\"\)",
+        "    \.replace\(\/\<\/g\, \"\&lt\;\"\)",
+        "    \.replace\(\/\>\/g\, \"\&gt\;\"\)\;",
+        "\}",
+        "for \(var i \= 0\; i \< 4\; i\+\+\) \{",
+        "    document\.writeln\(pad \+ HTMLEnc\(qlist\[i\]\)\)\;",
+        "\}",
+        "for \(var j \= 0\, len \= qlist\.length\; j \< len\; j\+\+\) \{",
+        "    document\.writeln\(pad \+ pad \+ \'\"\' \+ HTMLEnc\(qlist\[j\]\.replace\(\/\[\^A\-Za\-z0\-9\\s\]\/g\, \"\\\\\$\&\"\)\) \+ \'\"\,\'\)\;",
+        "\}",
+        "for \(\; i \< len\; i\+\+\) \{",
+        "    document\.writeln\(pad \+ HTMLEnc\(qlist\[i\]\)\)\;",
+        "\}",
+        "document\.writeln\(\"\&lt\;\/script\&gt\;\&lt\;\/pre\&gt\;\"\)\;",
+        "\/\/ \{\% endraw \%\}",
+        "\/\/ \]\]\>",
     ];
     document.writeln("---\nlayout: default\n---\n&lt;pre&gt;&lt;script&gt;");
     function HTMLEnc(str) { return str
@@ -40,7 +40,7 @@ layout: default
         document.writeln(pad + HTMLEnc(qlist[i]));
     }
     for (var j = 0, len = qlist.length; j < len; j++) {
-        document.writeln(pad + pad + '"' + HTMLEnc(qlist[j].replace(/[^A-Za-z0-9\s]/g, "\\$&")));
+        document.writeln(pad + pad + '"' + HTMLEnc(qlist[j].replace(/[^A-Za-z0-9\s]/g, "\\$&")) + '",');
     }
     for (; i < len; i++) {
         document.writeln(pad + HTMLEnc(qlist[i]));
