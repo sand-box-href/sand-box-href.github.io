@@ -9,12 +9,16 @@ layout: default
     var begin_raw_tag2 = '// {{ "{% raw " }}%}';
     var end_raw_tag2 = '// {{ "{% endraw " }}%}';
     var pad = "    ";
-    document.writeln("---\nlayout: default\n---\n<pre><script>")
-    document.writeln(pad, "var begin_raw_tag = '", begin_raw_tag2, "'")
-    document.writeln(pad, "var end_raw_tag = '", end_raw_tag2, "'")
-    document.writeln(pad, begin_raw_tag)
-    document.writeln(pad, end_raw_tag)
-    document.writeln("<\/script><\/pre>")
+    document.writeln("---\nlayout: default\n---\n&lt;pre&gt;&lt;script&gt;");
+    document.writeln(pad, "&lt;![CDATA[");
+    document.writeln(pad, "var begin_raw_tag = '", begin_raw_tag2, "'");
+    document.writeln(pad, "var end_raw_tag = '", end_raw_tag2, "'");
+    document.writeln(pad, begin_raw_tag);
+    document.writeln(pad, "var begin_raw_tag2 = '", begin_raw_tag2, "'");
+    document.writeln(pad, "var end_raw_tag2 = '", end_raw_tag2, "'");
+    document.writeln(pad, end_raw_tag);
+    document.writeln(pad, "]]&gt;");
+    document.writeln("&lt;/script&gt;&lt;/pre&gt;");
     // {% endraw %}
     // ]]>
 </script></pre>
