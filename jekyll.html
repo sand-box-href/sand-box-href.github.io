@@ -1,7 +1,9 @@
 ---
 layout: default
 ---
- {% assign opentag = '{%' %}
- {% assign endtag = '{%' %}
- {{ opentag }} raw {{ endtag }}
- {{ opentag }} endraw {{ endtag }}
+<pre>
+  {% assign opentag = '{%' %}
+  {% assign endtag = '%}' %}
+  {{ opentag }} raw {{ endtag }}
+  {{ opentag }} endraw {{ endtag }}
+</pre>
