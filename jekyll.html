@@ -2,11 +2,8 @@
 layout: default
 ---
 <pre>
-  {% assign opentag = '{%' %}
-  {{ opentag }} raw %}
-  {% raw %}
-    "{&#37; raw %}{&#37; endraw %}" tag don't nested.
-  {% endraw %}
-  {{ opentag }} endraw %}
-  {{ "{% raw " }}%} {{ "{% endraw " }}%}
+  <script>
+    var begin_raw_tag = "{{ "{% raw " }}%}";
+    var end_raw_tag = "{{ "{% endraw " }}%}";
+  </script>
 </pre>
