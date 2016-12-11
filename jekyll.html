@@ -10,23 +10,30 @@ layout: default
     var end_raw_tag2 = '// {{ "{% endraw " }}%}';
     var pad = '    ';
     var qlist = [
-    "// &lt;![CDATA[",
-    "var begin_raw_tag = '" + begin_raw_tag2 + "';",
-    "var end_raw_tag = '" + end_raw_tag2 + "';",
-    begin_raw_tag,
-    "var begin_raw_tag2 = '" + begin_raw_tag2 + "';",
-    "var end_raw_tag2 = '" + end_raw_tag2 + "';",
-    "var pad = '    ';",
-    "var qlist = [",
-    "];",
-    "document.writeln(\"---\\nlayout: default\\n---\\n&lt;pre&gt;&lt;script&gt;\");",
-    "for (var i = 0; i < 14; i++) {\n" + pad + pad + "document.writeln(qlist[i]);\n" + pad + "}",
-    end_raw_tag,
-    "// ]]&gt;",
-    "document.writeln(\"&lt;/script&gt;&lt;/pre&gt;\");",
+    "\-\-\-",
+    "layout\: default",
+    "\-\-\-",
+    "\<pre\>\<script\>",
+    "    \/\/ \<\!\[CDATA\[",
+    "    var begin\_raw\_tag \= \'\/\/ \{\{ \"\{\% raw \" \}\}\%\}\'\;",
+    "    var end\_raw\_tag \= \'\/\/ \{\{ \"\{\% endraw \" \}\}\%\}\'\;",
+    "    \/\/ \{\% raw \%\}",
+    "    var begin\_raw\_tag2 \= \'\/\/ \{\{ \"\{\% raw \" \}\}\%\}\'\;",
+    "    var end\_raw\_tag2 \= \'\/\/ \{\{ \"\{\% endraw \" \}\}\%\}\'\;",
+    "    var pad \= \'    \'\;",
+    "    var qlist \= \[",
+    "    \]\;",
+    "    document\.writeln\(\"\-\-\-\\nlayout\: default\\n\-\-\-\\n\&lt\;pre\&gt\;\&lt\;script\&gt\;\"\)\;",
+    "    for \(var i \= 0\; i \< 21\; i\+\+\) \{",
+    "        document\.writeln\(pad \+ qlist\[i\]\)\;",
+    "    \}",
+    "    document\.writeln\(\"\&lt\;\/script\&gt\;\&lt\;\/pre\&gt\;\"\)\;",
+    "    \/\/ \{\% endraw \%\}",
+    "    \/\/ \]\]\>",
+    "\<\/script\>\<\/pre\>",
     ];
     document.writeln("---\nlayout: default\n---\n&lt;pre&gt;&lt;script&gt;");
-    for (var i = 0; i < 14; i++) {
+    for (var i = 0; i < 21; i++) {
         document.writeln(pad + qlist[i]);
     }
     document.writeln("&lt;/script&gt;&lt;/pre&gt;");
