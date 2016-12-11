@@ -10,29 +10,35 @@ layout: default
     var end_raw_tag2 = '// {{ "{% endraw " }}%}';
     var pad = '    ';
     var qlist = [
-    "\/\/ \<\!\[CDATA\[",
-    "var begin\_raw\_tag \= \'\/\/ \{\{ \"\{\% raw \" \}\}\%\}\'\;",
-    "var end\_raw\_tag \= \'\/\/ \{\{ \"\{\% endraw \" \}\}\%\}\'\;",
-    "\/\/ \{\% raw \%\}",
-    "var begin\_raw\_tag2 \= \'\/\/ \{\{ \"\{\% raw \" \}\}\%\}\'\;",
-    "var end\_raw\_tag2 \= \'\/\/ \{\{ \"\{\% endraw \" \}\}\%\}\'\;",
-    "var pad \= \'    \'\;",
-    "var qlist \= \[",
-    "\]\;",
-    "document\.writeln\(\"\-\-\-\\nlayout\: default\\n\-\-\-\\n\&lt\;pre\&gt\;\&lt\;script\&gt\;\"\)\;",
-    "for \(var i \= 0\; i \< 16\; i\+\+\) \{",
-    "    document\.writeln\(pad \+ qlist\[i\]\.replace\(\/\&\/g\, \"\&amp\;\"\)\.replace\(\/\<\/g\, \"\&lt\;\"\)\.replace\(\/\>\/g\, \"\&gt\;\"\)\)\;\)\;",
-    "\}",
-    "document\.writeln\(\"\&lt\;\/script\&gt\;\&lt\;\/pre\&gt\;\"\)\;",
-    "\/\/ \{\% endraw \%\}",
-    "\/\/ \]\]\>",
+        "\/\/ \<\!\[CDATA\[",
+        "var begin\_raw\_tag \= \'\/\/ \{\{ \"\{\% raw \" \}\}\%\}\'\;",
+        "var end\_raw\_tag \= \'\/\/ \{\{ \"\{\% endraw \" \}\}\%\}\'\;",
+        "\/\/ \{\% raw \%\}",
+        "var begin\_raw\_tag2 \= \'\/\/ \{\{ \"\{\% raw \" \}\}\%\}\'\;",
+        "var end\_raw\_tag2 \= \'\/\/ \{\{ \"\{\% endraw \" \}\}\%\}\'\;",
+        "var pad \= \'    \'\;",
+        "var qlist \= \[",
+        "\]\;",
+        "document\.writeln\(\"\-\-\-\\nlayout\: default\\n\-\-\-\\n\&lt\;pre\&gt\;\&lt\;script\&gt\;\"\)\;",
+        "for \(var i \= 0\; i \< 8\; i\+\+\) \{",
+        "    document\.writeln\(pad \+ qlist\[i\]\.replace\(\/\&\/g\, \"\&amp\;\"\)\.replace\(\/\<\/g\, \"\&lt\;\"\)\.replace\(\/\>\/g\, \"\&gt\;\"\)\)\;",
+        "\}",
+        "for \(var j \= 0\, len \= qlist\.length\; j \< len\; j\+\+\) \{",
+        "    document\.writeln\(pad \+ pad \+ \'\"\' \+ qlist\[j\]\.replace\(\/\[\^A\-Za\-z0\-9\\s\]\/g\, \"\\\\\$\&\"\)\.replace\(\/\&\/g\, \"\&amp\;\"\)\.replace\(\/\<\/g\, \"\&lt\;\"\)\.replace\(\/\>\/g\, \"\&gt\;\"\) \+ \'\"\,\'\)\;",
+        "\}",
+        "for \(\; i \< len\; i\+\+\) \{",
+        "    document\.writeln\(pad \+ qlist\[i\]\.replace\(\/\&\/g\, \"\&amp\;\"\)\.replace\(\/\<\/g\, \"\&lt\;\"\)\.replace\(\/\>\/g\, \"\&gt\;\"\)\)\;",
+        "\}",
+        "document\.writeln\(\"\&lt\;\/script\&gt\;\&lt\;\/pre\&gt\;\"\)\;",
+        "\/\/ \{\% endraw \%\}",
+        "\/\/ \]\]\>",
     ];
     document.writeln("---\nlayout: default\n---\n&lt;pre&gt;&lt;script&gt;");
     for (var i = 0; i < 8; i++) {
         document.writeln(pad + qlist[i].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
     }
     for (var j = 0, len = qlist.length; j < len; j++) {
-        document.writeln(pad + '"' + qlist[j].replace(/[^A-Za-z0-9\s]/g, "\\$&").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '",');
+        document.writeln(pad + pad + '"' + qlist[j].replace(/[^A-Za-z0-9\s]/g, "\\$&").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '",');
     }
     for (; i < len; i++) {
         document.writeln(pad + qlist[i].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
