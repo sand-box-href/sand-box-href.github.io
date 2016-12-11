@@ -32,7 +32,7 @@ layout: default
         document.writeln(pad + qlist[i].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
     }
     for (var j = 0, len = qlist.length; j < len; j++) {
-        document.writeln(pad + '"' + qlist[i].replace(/[^A-Za-z0-9\s]/g, "\\$&").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '",');
+        document.writeln(pad + '"' + qlist[j].replace(/[^A-Za-z0-9\s]/g, "\\$&").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '",');
     }
     for (; i < len; i++) {
         document.writeln(pad + qlist[i].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
