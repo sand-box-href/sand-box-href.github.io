@@ -9,18 +9,25 @@ layout: default
     var begin_raw_tag2 = '// {{ "{% raw " }}%}';
     var end_raw_tag2 = '// {{ "{% endraw " }}%}';
     var pad = '    ';
-    document.writeln("---\nlayout: default\n---\n&lt;pre&gt;&lt;script&gt;");
-    document.writeln(pad + "&lt;![CDATA[");
-    document.writeln(pad + "var begin_raw_tag = '", begin_raw_tag2 + "';");
-    document.writeln(pad + "var end_raw_tag = '", end_raw_tag2 + "';");
-    document.writeln(pad + begin_raw_tag);
-    document.writeln(pad + "var begin_raw_tag2 = '", begin_raw_tag2 + "';");
-    document.writeln(pad + "var end_raw_tag2 = '" + end_raw_tag2 + "';");
-    document.writeln(pad + "var pad = '    ';");
-    document.writeln("... ...");
-    document.writeln(pad + end_raw_tag);
-    document.writeln(pad + "]]&gt;");
-    document.writeln("&lt;/script&gt;&lt;/pre&gt;");
+    var qlist = [
+    "---\nlayout: default\n---\n&lt;pre&gt;&lt;script&gt;",
+    pad + "// &lt;![CDATA[",
+    pad + "var begin_raw_tag = '", begin_raw_tag2 + "';",
+    pad + "var end_raw_tag = '", end_raw_tag2 + "';",
+    pad + begin_raw_tag,
+    pad + "var begin_raw_tag2 = '", begin_raw_tag2 + "';",
+    pad + "var end_raw_tag2 = '" + end_raw_tag2 + "';",
+    pad + "var pad = '    ';",
+    pad + "var qlist = [",
+    pad + "];",
+    pad + "for (var i = 0; i < 14; i++) {\n" + pad + pad + "document.writeln(qlist[i]);\n" + pad + "}",
+    pad + end_raw_tag,
+    pad + "// ]]&gt;",
+    "&lt;/script&gt;&lt;/pre&gt;",
+    ];
+    for (var i = 0; i < 14; i++) {
+        document.writeln(qlist[i]);
+    }
     // {% endraw %}
     // ]]>
 </script></pre>
