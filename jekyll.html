@@ -3,7 +3,13 @@ layout: default
 ---
 <pre>
   <script>
-    var begin_raw_tag = "{{ "{% raw " }}%}";
-    var end_raw_tag = "{{ "{% endraw " }}%}";
+    var begin_raw_tag = '// {{ "{% raw " }}%}';
+    var end_raw_tag = '// {{ "{% endraw " }}%}';
+    // {% raw %}
+    var begin_raw_tag2 = '// {{ "{% raw " }}%}';
+    var end_raw_tag2 = '// {{ "{% endraw " }}%}';
+    document.write("var begin_raw_tag = '", begin_raw_tag, "'")
+    document.write("var end_raw_tag = '", end_raw_tag, "'")
+    // {% endraw %}
   </script>
 </pre>
