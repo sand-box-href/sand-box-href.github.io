@@ -28,7 +28,13 @@ layout: default
     "\/\/ \]\]\>",
     ];
     document.writeln("---\nlayout: default\n---\n&lt;pre&gt;&lt;script&gt;");
-    for (var i = 0; i < 16; i++) {
+    for (var i = 0; i < 8; i++) {
+        document.writeln(pad + qlist[i].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
+    }
+    for (var j = 0, len = qlist.length; j < len; j++) {
+        document.writeln(pad + '"' + qlist[i].replace(/[^A-Za-z0-9\s]/g, "\\$&").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + '",');
+    }
+    for (; i < len; i++) {
         document.writeln(pad + qlist[i].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
     }
     document.writeln("&lt;/script&gt;&lt;/pre&gt;");
