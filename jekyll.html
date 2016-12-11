@@ -25,7 +25,7 @@ layout: default
     "    \]\;",
     "    document\.writeln\(\"\-\-\-\\nlayout\: default\\n\-\-\-\\n\&lt\;pre\&gt\;\&lt\;script\&gt\;\"\)\;",
     "    for \(var i \= 0\; i \< 21\; i\+\+\) \{",
-    "        document\.writeln\(pad \+ qlist\[i\]\)\;",
+    "        document\.writeln\(pad \+ qlist\[i\]\.replace\(\/\&\/g\, \"\&amp\;\"\)\.replace\(\/\<\/g\, \"\&lt\;\"\)\.replace\(\/\>\/g\, \"\&gt\;\"\)\)\;\)\;",
     "    \}",
     "    document\.writeln\(\"\&lt\;\/script\&gt\;\&lt\;\/pre\&gt\;\"\)\;",
     "    \/\/ \{\% endraw \%\}",
@@ -34,7 +34,7 @@ layout: default
     ];
     document.writeln("---\nlayout: default\n---\n&lt;pre&gt;&lt;script&gt;");
     for (var i = 0; i < 21; i++) {
-        document.writeln(pad + qlist[i]);
+        document.writeln(pad + qlist[i].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
     }
     document.writeln("&lt;/script&gt;&lt;/pre&gt;");
     // {% endraw %}
