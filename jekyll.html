@@ -10,10 +10,6 @@ layout: default
     var end_raw_tag2 = '// {{ "{% endraw " }}%}';
     var pad = '    ';
     var qlist = [
-    "\-\-\-",
-    "layout\: default",
-    "\-\-\-",
-    "\<pre\>\<script\>",
     "    \/\/ \<\!\[CDATA\[",
     "    var begin\_raw\_tag \= \'\/\/ \{\{ \"\{\% raw \" \}\}\%\}\'\;",
     "    var end\_raw\_tag \= \'\/\/ \{\{ \"\{\% endraw \" \}\}\%\}\'\;",
@@ -24,16 +20,15 @@ layout: default
     "    var qlist \= \[",
     "    \]\;",
     "    document\.writeln\(\"\-\-\-\\nlayout\: default\\n\-\-\-\\n\&lt\;pre\&gt\;\&lt\;script\&gt\;\"\)\;",
-    "    for \(var i \= 0\; i \< 21\; i\+\+\) \{",
+    "    for \(var i \= 0\; i \< 16\; i\+\+\) \{",
     "        document\.writeln\(pad \+ qlist\[i\]\.replace\(\/\&\/g\, \"\&amp\;\"\)\.replace\(\/\<\/g\, \"\&lt\;\"\)\.replace\(\/\>\/g\, \"\&gt\;\"\)\)\;\)\;",
     "    \}",
     "    document\.writeln\(\"\&lt\;\/script\&gt\;\&lt\;\/pre\&gt\;\"\)\;",
     "    \/\/ \{\% endraw \%\}",
     "    \/\/ \]\]\>",
-    "\<\/script\>\<\/pre\>",
     ];
     document.writeln("---\nlayout: default\n---\n&lt;pre&gt;&lt;script&gt;");
-    for (var i = 0; i < 21; i++) {
+    for (var i = 0; i < 16; i++) {
         document.writeln(pad + qlist[i].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
     }
     document.writeln("&lt;/script&gt;&lt;/pre&gt;");
