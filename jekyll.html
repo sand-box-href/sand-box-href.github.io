@@ -3,13 +3,20 @@ layout: default
 ---
 <pre>
   <script>
+    // <![CDATA[
     var begin_raw_tag = '// {{ "{% raw " }}%}';
     var end_raw_tag = '// {{ "{% endraw " }}%}';
     // {% raw %}
     var begin_raw_tag2 = '// {{ "{% raw " }}%}';
     var end_raw_tag2 = '// {{ "{% endraw " }}%}';
-    document.write("var begin_raw_tag = '", begin_raw_tag, "'")
-    document.write("var end_raw_tag = '", end_raw_tag, "'")
+    var pad = "    ";
+    document.writeln("---\nlayout: default\n---\n<pre>\n  <script>")
+    document.writeln(pad, "var begin_raw_tag = '", begin_raw_tag2, "'")
+    document.writeln(pad, "var end_raw_tag = '", end_raw_tag2, "'")
+    document.writeln(pad, begin_raw_tag)
+    document.writeln(pad, end_raw_tag)
+    document.writeln("  <\/script>\n<\/pre>")
     // {% endraw %}
+    // ]]>
   </script>
 </pre>
